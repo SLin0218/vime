@@ -1,3 +1,7 @@
+let mapleader = ' '
+let g:mapleader = ' '
+set timeoutlen=2000           " 延长 leader 等待时间(ms)
+
 " 窗口相关快捷键
 noremap <c-h> <C-w>h
 noremap <c-j> <C-w>j
@@ -38,7 +42,7 @@ cnoremap <C-l> <End>
 " 使用leader q执行宏录制功能
 nnoremap <leader>q q
 " jk表示esc
-inoremap jk <esc>
+" inoremap jk <esc>
 
 nmap << <<_
 nmap >> >>_

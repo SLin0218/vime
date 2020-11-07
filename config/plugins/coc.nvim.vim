@@ -75,11 +75,11 @@ nmap <silent> gi <plug>(coc-implementation)
 " 跳转到引用
 nmap <silent> gr <plug>(coc-references)
 " 重构refactor,需要lsp支持
-nmap <silent> <space>rf <Plug>(coc-refactor)
+nmap <silent> <leader>rf <Plug>(coc-refactor)
 " 修复代码
-nmap <silent> <space>f  <Plug>(coc-fix-current)
+nmap <silent> <leader>f  <Plug>(coc-fix-current)
 " 变量重命名
-nmap <silent> <space>rn <Plug>(coc-rename)
+nmap <silent> <leader>rn <Plug>(coc-rename)
 
 " 使用K悬浮显示定义
 function! s:show_documentation()
@@ -113,37 +113,37 @@ if !common#functions#HasPlug('nvim-treesitter')
     omap ac <Plug>(coc-classobj-a)
 endif
 
-if common#functions#HasPlug('coc-fzf')
-    nnoremap <silent> <space>A  :<C-u>CocFzfList diagnostics<CR>
-    nnoremap <silent> <space>a  :<C-u>CocFzfList diagnostics --current-buf<CR>
-    nnoremap <silent> <space>c  :<C-u>CocFzfList commands<CR>
-    nnoremap <silent> <space>e  :<C-u>CocFzfList extensions<CR>
-    nnoremap <silent> <space>l  :<C-u>CocFzfList<CR>
-    " nnoremap <silent> <space>l  :<C-u>CocFzfList location<CR>
-    nnoremap <silent> <space>o  :<C-u>CocFzfList outline<CR>
-    nnoremap <silent> <space>O  :<C-u>CocFzfList symbols<CR>
-    nnoremap <silent> <space>s  :<C-u>CocFzfList services<CR>
-    nnoremap <silent> <space>p  :<C-u>CocFzfListResume<CR>
-else
-    " Show all diagnostics
-    if common#functions#HasPlug('fzf-preview.vim')
-        nnoremap <silent> <space>a  :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<cr>
-        nnoremap <silent> <space>A  :<C-u>CocCommand fzf-preview.CocDiagnostics<cr>
-    else
-        nnoremap <silent> <space>a  :<C-u>CocList --normal diagnostics<cr>
-    endif
-    " Manage extensions
-    " nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-    nnoremap <silent> <space>o  :<C-u>CocList --auto-preview outline<cr>
-    nnoremap <silent> <space>O  :<C-u>CocList --auto-preview --interactive symbols<cr>
-    " Show commands
-    nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-    " Resume latest coc list
-    nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-    " nnoremap <silent> <space>s  :<C-u>CocList services<CR>
-    " show coclist 早晚要放进去的
-    nnoremap <silent> <space>l  :<C-u>CocList<CR>
-endif
+" if common#functions#HasPlug('coc-fzf')
+    " nnoremap <silent> <space>A  :<C-u>CocFzfList diagnostics<CR>
+    " nnoremap <silent> <space>a  :<C-u>CocFzfList diagnostics --current-buf<CR>
+    " nnoremap <silent> <space>c  :<C-u>CocFzfList commands<CR>
+    " nnoremap <silent> <space>e  :<C-u>CocFzfList extensions<CR>
+    " nnoremap <silent> <space>l  :<C-u>CocFzfList<CR>
+    " " nnoremap <silent> <space>l  :<C-u>CocFzfList location<CR>
+    " nnoremap <silent> <space>o  :<C-u>CocFzfList outline<CR>
+    " nnoremap <silent> <space>O  :<C-u>CocFzfList symbols<CR>
+    " nnoremap <silent> <space>s  :<C-u>CocFzfList services<CR>
+    " nnoremap <silent> <space>p  :<C-u>CocFzfListResume<CR>
+" else
+    " " Show all diagnostics
+    " if common#functions#HasPlug('fzf-preview.vim')
+        " nnoremap <silent> <space>a  :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<cr>
+        " nnoremap <silent> <space>A  :<C-u>CocCommand fzf-preview.CocDiagnostics<cr>
+    " else
+        " nnoremap <silent> <space>a  :<C-u>CocList --normal diagnostics<cr>
+    " endif
+    " " Manage extensions
+    " " nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+    " nnoremap <silent> <space>o  :<C-u>CocList --auto-preview outline<cr>
+    " nnoremap <silent> <space>O  :<C-u>CocList --auto-preview --interactive symbols<cr>
+    " " Show commands
+    " nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+    " " Resume latest coc list
+    " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+    " " nnoremap <silent> <space>s  :<C-u>CocList services<CR>
+    " " show coclist 早晚要放进去的
+    " nnoremap <silent> <space>l  :<C-u>CocList<CR>
+" endif
 
 " 多光标支持，但是coc的多光标不如 vim-visual-multi，因此在没有
 " vim-visual-multi的时候才使用 coc
@@ -381,7 +381,8 @@ function! s:lc_coc_explorer() abort
 
     " Use preset argument to open it
     " nmap <space>rd :CocCommand explorer --preset .vim<CR>
-    nmap <F2> :CocCommand explorer<CR>
+    " nmap <F2> :CocCommand explorer<CR>
+    nmap <leader>1 :CocCommand explorer<CR>
     if !common#functions#HasPlug('ranger.vim')
         nmap <leader>f :CocCommand explorer --preset floating<CR>
     endif
@@ -401,7 +402,7 @@ function! s:lc_coc_explorer() abort
     call coc#config("explorer.file.column.icon.renamed", "R")
     call coc#config("explorer.file.column.icon.unmerged", "≠")
     call coc#config("explorer.file.column.icon.ignored", "ⁱ")
-    call coc#config("explorer.keyMappings", {
+    call coc#config("explorer.keyMappings.global", {
       \ 'k': 'nodePrev',
       \ 'j': 'nodeNext',
       \ 'h': 'collapse',

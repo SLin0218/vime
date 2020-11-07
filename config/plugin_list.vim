@@ -12,12 +12,15 @@ Plug 'tpope/vim-fugitive', {'on': ['Gwrite', 'Gcommit', 'Gread', 'Gdiff', 'Gblam
 " 注释插件
 Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
-Plug 'kkoomen/vim-doge', {'on': 'DogeGenerate'}
+" Plug 'kkoomen/vim-doge', {'on': 'DogeGenerate'}
 " 数据库
 Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion'
 " 全局替换插件
 Plug 'brooth/far.vim'
+" 文件结构导航
+Plug 'preservim/tagbar'
 " 主题theme类插件
+Plug 'kaicataldo/material.vim'
 Plug 'ajmwagar/vim-deus'
 Plug 'rakr/vim-one'
 Plug 'arcticicestudio/nord-vim'
@@ -64,13 +67,14 @@ Plug 'honza/vim-snippets'
 " 快速选择窗口
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 " 快速移动
-Plug 'easymotion/vim-easymotion', {'on':
-   \ [
-   \ '<Plug>(easymotion-bd-f)', '<Plug>(easymotion-overwin-f)',
-   \ '<Plug>(easymotion-overwin-f2)', '<Plug>(easymotion-bd-jk)',
-   \ '<Plug>(easymotion-overwin-line)', '<Plug>(easymotion-bd-w)',
-   \ '<Plug>(easymotion-overwin-w)', '<Plug>(easymotion-s)',
-   \ ]}
+Plug 'easymotion/vim-easymotion'
+" , {'on':
+"   \ [
+"   \ '<Plug>(easymotion-bd-f)', '<Plug>(easymotion-overwin-f)',
+"   \ '<Plug>(easymotion-overwin-f2)', '<Plug>(easymotion-bd-jk)',
+"   \ '<Plug>(easymotion-overwin-line)', '<Plug>(easymotion-bd-w)',
+"   \ '<Plug>(easymotion-overwin-w)', '<Plug>(easymotion-s)',
+"   \ ]}
 " 对齐
 Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign', '<Plug>(EasyAlign)']}
 " 对齐线
@@ -82,10 +86,11 @@ Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " 悬浮终端
 Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']}
 " 笔记插件，支持markdown
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 " Plug 'SidOfc/mkdx'
 " markdown 预览插件
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" , { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
 Plug 'mzlogin/vim-markdown-toc', {'on': ['GenTocGFM', 'GenTocRedcarpet', 'GenTocGitLab', 'GenTocMarked']}
 " 功能很强的折叠插件, zc zo
 Plug 'pseewald/vim-anyfold'

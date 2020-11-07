@@ -171,7 +171,8 @@ endfunction
 " 自定义快捷键
 " nnoremap <silent> <F2> <esc>:call OpenDefxCurWin()<cr>
 " nnoremap <silent> <F2> <esc>:call OpenDefxLeft()<cr>
-nnoremap <silent> <F2> <esc>:call DefxOpen(v:false)<cr>
+" nnoremap <silent> <F2> <esc>:call DefxOpen(v:false)<cr>
+nnoremap <silent> <C-n> <esc>:call DefxOpen(v:false)<cr>
 if !common#functions#HasPlug('ranger.vim')
     nnoremap <silent> <leader>f <esc>:call DefxOpen(v:true)<cr>
 endif

@@ -383,9 +383,9 @@ command! -range=% -bang FzfBLinesVisual <line1>,<line2>call s:FzfBLinesVisual()
 "-----------------------------------------------------------------------------
 " 自定义快捷键
 "-----------------------------------------------------------------------------
-nnoremap <M-f> :FWW<CR>
+nnoremap <leader>sf :FWW<CR>
 nnoremap <M-F> :FWW $HOME<CR>
-nnoremap <M-b> :Buffers<CR>
+nnoremap <leader>sb :Buffers<CR>
 if common#functions#HasPlug('vista.vim')
     let g:vista_fzf_preview = ['up:50%:wrap']
     noremap <M-t> :Vista finder<CR>
@@ -398,7 +398,7 @@ vnoremap <M-s> :GrepWithWikiVisual<CR>
 " 模糊搜索当前buffer
 nnoremap ? :FzfBLines<CR>
 vnoremap ? :FzfBLinesVisual<CR>
-nnoremap <M-r> :History<CR>
+nnoremap <leader>e :History<CR>
 " TODO 增加changes 需要自定义
 nnoremap <M-c> :Commands<CR>
 " 如果coc-fzf支持marks的话就用coc-fzf+coc-bookmarks
@@ -407,7 +407,7 @@ nnoremap <M-m> :FzfMarks<CR>
 nnoremap <M-M> :Maps<CR>
 nnoremap <M-w> :Windows<CR>
 if common#functions#HasPlug('coc-fzf')
-    nnoremap <M-y> :<c-u>CocFzfList yank<CR>
+    nnoremap <leader>sy :<c-u>CocFzfList yank<CR>
 endif
 " TODO 编写高亮
 nnoremap <M-J> :FzfJumps<CR>

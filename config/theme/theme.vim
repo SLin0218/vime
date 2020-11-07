@@ -1,6 +1,5 @@
 " TODO 需要整理，同时要区分一下gui与非gui
-if &term =~ '256color' && $TMUX != ''
-    " disable Background Color Erase (BCE) so that color schemes
+if &term =~ '256color' && $TMUX != '' " disable Background Color Erase (BCE) so that color schemes
     " render properly when inside 256-color tmux and GNU screen.
     " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
     set t_ut=
@@ -22,7 +21,7 @@ endif
 " 美化相关基本配置
 " 高亮当前行列
 set cursorline
-" set cursorcolumn
+set cursorcolumn
 " 高亮textwidth后的一列
 set colorcolumn=+1
 " 光标
@@ -31,7 +30,7 @@ set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20
 set incsearch
 " 高亮匹配内容
 set hlsearch
-set list
+" set list
 " 只有set list下面的才会起作用
 if &list
     set listchars=tab:\|\→·,nbsp:⣿,extends:»,precedes:«
@@ -77,15 +76,17 @@ endif
                 " \ autocmd signify TextChanged,TextChangedI * call sy#start()
 " augroup END
 
-let g:tokyonight_style = 'storm' " available: night, storm
-let g:tokyonight_enable_italic = 1
-let g:tokyonight_transparent_background = 1
-let g:tokyonight_menu_selection_background = 'red'
-let g:tokyonight_current_word = 'underline'
-silent! colorscheme tokyonight
+" let g:tokyonight_style = 'storm' " available: night, storm
+" let g:tokyonight_enable_italic = 1
+" let g:tokyonight_transparent_background = 0
+" let g:tokyonight_menu_selection_background = 'red'
+" let g:tokyonight_current_word = 'underline'
+" silent! colorscheme tokyonight
 
 " silent! colorscheme edge
-
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'palenight'
+silent! colorscheme material
 " coc 美化
 if common#functions#HasPlug('coc.nvim')
     if !common#functions#HasPlug('vim-multiple-cursors.vim')
