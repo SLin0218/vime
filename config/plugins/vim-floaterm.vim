@@ -4,10 +4,10 @@ let g:floaterm_height=0.6
 let g:floaterm_rootmarkers=['.project', '.git', '.hg', '.svn', '.root', '.gitignore']
 let g:floaterm_autoinsert=v:false
 
-nmap <silent> <M-+> :FloatermNew<cr>
-nmap <silent> <M-=> :FloatermToggle<cr>
-tnoremap <silent> <M-+> <c-\><c-n>:FloatermNew<cr>
-tnoremap <silent> <M-=> <c-\><c-n>:FloatermToggle<cr>
+nmap <silent> <leader>tn :FloatermNew<cr>
+nmap <silent> <leader>t :FloatermToggle<cr>
+tnoremap <silent> <C-n> <c-\><c-n>:FloatermNew<cr>
+tnoremap <silent> <C-p> <c-\><c-n>:FloatermToggle<cr>
 
 augroup vime_floaterm_group
     autocmd!
