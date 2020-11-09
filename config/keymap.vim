@@ -12,7 +12,7 @@ tnoremap <c-j> <c-\><c-n><c-w>j
 tnoremap <c-k> <c-\><c-n><c-w>k
 tnoremap <c-l> <c-\><c-n><c-w>l
 " 更改窗口垂直大小
-nnoremap <M--> :resize +3<CR>
+nnoremap <M-+> :resize +3<CR>
 nnoremap <M-_> :resize -3<CR>
 " 更改窗口水平大小
 nnoremap <M-(> :vertical resize -3<CR>
@@ -36,8 +36,8 @@ nnoremap <BackSpace> :nohl<cr>
 " 命令行移动
 cnoremap <C-h> <Home>
 cnoremap <C-l> <End>
-" cnoremap <C-l> <Right>
-" cnoremap <C-j> <Left>
+cnoremap <C-l> <Right>
+cnoremap <C-j> <Left>
 
 " 使用leader q执行宏录制功能
 nnoremap <leader>q q
@@ -82,8 +82,8 @@ endfunction
 " noremap <silent> <space><space> <esc>:call common#functions#Wall()<cr>
 " noremap <silent> <space><space> <esc>:call <SID>writeCurrent()<cr>
 " xnoremap <silent> <space><space> <esc>:call <SID>writeCurrent()<cr>
-noremap <silent> <space><space> <esc>:silent! write<cr>
-xnoremap <silent> <space><space> <esc>:silent! write<cr>
+noremap <silent> <leader>w <esc>:silent! write<cr>
+xnoremap <silent> <leader>w <esc>:silent! write<cr>
 
 nnoremap j gj
 nnoremap k gk
