@@ -26,15 +26,16 @@ let g:startify_session_dir = g:session_dir
 
 " bookmarks 书签
 let g:startify_bookmarks = [
-            \ '/Users/lin/.zshrc',
-            \ '/Users/lin/.config/clash/config.yaml',
-            \ '/Users/lin/.config/nvim/config/plugin_list.vim',
+            \ g:vimwiki_path . '/草稿/todo.md',
+            \ g:vimwiki_path . '/草稿/快速笔记.md',
+            \ g:quicknote_file
             \ ]
 
 " command 命令
 let g:startify_commands = [
     \ {'u': ['插件更新', 'PlugUpdate']},
     \ {'t': ['打开终端', 'terminal']},
+    \ {'w': ['笔记列表', 'VimwikiIndex']},
     \ {'s': ['启动时间', 'StartupTime']},
     \ ]
 

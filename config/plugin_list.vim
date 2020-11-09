@@ -20,7 +20,6 @@ Plug 'brooth/far.vim'
 " 文件结构导航
 Plug 'preservim/tagbar'
 " 主题theme类插件
-Plug 'dracula/vim'
 Plug 'kaicataldo/material.vim'
 Plug 'ajmwagar/vim-deus'
 Plug 'rakr/vim-one'

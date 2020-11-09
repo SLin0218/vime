@@ -84,11 +84,9 @@ endif
 " silent! colorscheme tokyonight
 
 " silent! colorscheme edge
-" let g:material_terminal_italics = 1
-" let g:material_theme_style = 'palenight'
-" silent! colorscheme material
-
-silent! colorscheme dracula
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'palenight'
+silent! colorscheme material
 " coc 美化
 if common#functions#HasPlug('coc.nvim')
     if !common#functions#HasPlug('vim-multiple-cursors.vim')
