@@ -83,6 +83,14 @@ function! common#functions#OpenFileUsingSystemApp(filePath) abort
     exec 'silent !xdg-open ' . fnameescape(a:filePath) . ' > /dev/null'
 endfunction
 
+function! common#functions#GitStatusLine() abort
+  let l:git_status = get(g:,'coc_git_status','')
+  let status = ''
+  let status .= l:git_status ? '│' : ''
+  let status .= l:git_status
+  return status
+endfunction
+
 function! common#functions#ModeType() abort
     " 获得当前的模式
     " 返回n, i, v, R中的一种
@@ -121,7 +129,7 @@ function! common#functions#ModeLabelWithColor() abort
     " 如NORMAL INSERT VISUAL等
     let l:mode = common#functions#ModeType()
     if l:mode ==? 'n'
-        return 'NORMAL'
+        return '%#WildMenu# NORMAL '
     elseif l:mode ==? 'i'
         return 'INSERT'
     elseif l:mode ==? 'v'
@@ -149,7 +157,7 @@ endfunction
 function! common#functions#ReadOnly() abort
     " 判断是否只读
     if &readonly
-        return "  "
+        return "🔒"
     else
         return ""
     endif
@@ -194,7 +202,7 @@ endfunction
 
 function! common#functions#BufLineAndColInfo() abort
     " 获得当前buffer的行，列等信息
-    return printf(' %d%% ☰ %d:%d', 100*line('.')/line('$'),  line('.'), col('.'))
+    return printf('%d%% %d:%d', 100*line('.')/line('$'),  line('.'), col('.'))
 endfunction
 
 function! common#functions#getVisualSelection() abort

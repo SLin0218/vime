@@ -398,7 +398,7 @@ vnoremap <M-s> :GrepWithWikiVisual<CR>
 " 模糊搜索当前buffer
 nnoremap ? :FzfBLines<CR>
 vnoremap ? :FzfBLinesVisual<CR>
-nnoremap <leader>e :History<CR>
+nnoremap <M-e> :History<CR>
 " TODO 增加changes 需要自定义
 nnoremap <M-c> :Commands<CR>
 " 如果coc-fzf支持marks的话就用coc-fzf+coc-bookmarks

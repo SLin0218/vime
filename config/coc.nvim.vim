@@ -1,7 +1,7 @@
 " coc插件安装目录
 let g:coc_data_home = g:cache_root_path . 'coc/'
 " coc-settings.json所在目录
-let g:coc_config_home = g:other_config_root_path
+"let g:coc_config_home = g:other_config_root_path
 
 " 卸载不在列表中的插件
 function! s:uninstall_unused_coc_extensions() abort
@@ -96,9 +96,7 @@ nnoremap <silent> <space>k :call CocActionAsync('showSignatureHelp')<CR>
 au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
 " 格式化代码
-if !common#functions#HasPlug('neoformat')
-    command! -nargs=0 Format :call CocAction('format')
-endif
+command! -nargs=0 Format :CocCommand prettier.formatFile
 
 " 文档块支持，比如删除条件，函数等
 " 功能不如treesitter，如果不存在treesitter才使用coc
@@ -243,36 +241,9 @@ function! s:lc_coc_yank() abort
     nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 endfunction
 
-function! s:lc_coc_translator() abort
-    nmap  <leader>e <Plug>(coc-translator-e)
-    nmap  <leader>d <Plug>(coc-translator-p)
-endfunction
-
-function! s:lc_coc_bookmark() abort
-    if common#functions#HasPlug('vim-bookmarks')
-        return
-    endif
-
-    call coc#config("bookmark.sign", "♥")
-    nmap <silent> ma <Plug>(coc-bookmark-annotate)
-    nmap <silent> mm <Plug>(coc-bookmark-toggle)
-    nmap <silent> mj <Plug>(coc-bookmark-next)
-    nmap <silent> mk <Plug>(coc-bookmark-prev)
-    nmap <silent> mc :CocCommand bookmark.clearForCurrentFile<cr>
-    nmap <silent> ml :CocList bookmark<cr>
-endfunction
-
 function! s:lc_coc_todolist() abort
     nmap <silent> <space>tl :<C-u>CocList todolist<cr>
     nmap <silent> <space>ta :<C-u>CocCommand todolist.create<cr>
-endfunction
-
-function! s:lc_coc_clangd() abort
-    call coc#config('clangd.semanticHighlighting', v:true)
-endfunction
-
-function! s:lc_coc_kite() abort
-    call coc#config('kite.pollingInterval', 1000)
 endfunction
 
 function! s:lc_coc_xml() abort
@@ -281,6 +252,7 @@ endfunction
 
 function! s:lc_coc_prettier() abort
     call coc#config('prettier.tabWidth', 4)
+    call coc#config('prettier.eslintIntegration', v:true)
 endfunction
 
 function! s:lc_coc_vimlsp() abort
@@ -327,19 +299,9 @@ function! s:lc_coc_snippets() abort
             \ })
 endfunction
 
-function! s:lc_coc_python() abort
-    call coc#config("python.jediEnabled", v:true)
-    call coc#config("python.linting.enabled", v:true)
-    call coc#config("python.linting.pylintEnabled", v:true)
-endfunction
-
 function! s:lc_coc_ci() abort
     nmap <silent> w <Plug>(coc-ci-w)
     nmap <silent> b <Plug>(coc-ci-b)
-endfunction
-
-function! s:lc_coc_rainbow_fart() abort
-    call coc#config("rainbow-fart.ffplay", "ffplay")
 endfunction
 
 function! s:lc_coc_explorer() abort
@@ -353,9 +315,9 @@ function! s:lc_coc_explorer() abort
         \      'floating-width': 100,
         \      'open-action-strategy': 'sourceWindow',
         \      'file-child-template': '[git | 2] [selection | clip | 1]
-                    \ [indent] [icon | 1] [diagnosticError & 1]
-                    \ [filename omitCenter 1][modified][readonly]
-                    \ [linkIcon & 1][link growRight 1] [timeCreated | 8] [size]'
+        \             [indent] [icon | 1] [diagnosticError & 1]
+        \             [filename omitCenter 1][modified][readonly]
+        \             [linkIcon & 1][link growRight 1] [timeCreated | 8] [size]'
         \   },
         \   'floatingTop': {
         \     'position': 'floating',
@@ -380,17 +342,15 @@ function! s:lc_coc_explorer() abort
     \ }
 
     " Use preset argument to open it
-    " nmap <space>rd :CocCommand explorer --preset .vim<CR>
-    " nmap <F2> :CocCommand explorer<CR>
     nmap <leader>1 :CocCommand explorer<CR>
-    if !common#functions#HasPlug('ranger.vim')
-        nmap <leader>f :CocCommand explorer --preset floating<CR>
-    endif
+
+    nmap <leader>f :CocCommand explorer --preset floating<CR>
 
     augroup vime_coc_explorer_group
         autocmd!
         " autocmd WinEnter * if &filetype == 'coc-explorer' && winnr('$') == 1 | q | endif
         autocmd TabLeave * if &filetype == 'coc-explorer' | wincmd w | endif
+        autocmd BufEnter * if &filetype == 'coc-explorer' | setl statusline=coc-explorer | endif
     augroup END
 
     " config
@@ -447,27 +407,24 @@ function! s:lc_coc_explorer() abort
       \ '<<': 'gitStage',
       \ '>>': 'gitUnstage'
     \ })
+
 endfunction
 
 function! s:tmp() abort
 endfunction
+
+call coc#config('diagnostic.displayByAle', v:true)
 
 " 遍历coc插件列表，载入插件配置
 let s:coc_config_functions = {
             \ 'coc-highlight': function('<SID>lc_coc_highlight'),
             \ 'coc-lists': function('<SID>lc_coc_lists'),
             \ 'coc-yank': function('<SID>lc_coc_yank'),
-            \ 'coc-translator': function('<SID>lc_coc_translator'),
-            \ 'coc-bookmark': function('<SID>lc_coc_bookmark'),
             \ 'coc-todolist': function('<SID>lc_coc_todolist'),
-            \ 'coc-clangd': function('<SID>lc_coc_clangd'),
-            \ 'coc-kite': function('<SID>lc_coc_kite'),
             \ 'coc-xml': function('<SID>lc_coc_xml'),
             \ 'coc-prettier': function('<SID>lc_coc_prettier'),
             \ 'coc-git': function('<SID>lc_coc_git'),
             \ 'coc-snippets': function('<SID>lc_coc_snippets'),
-            \ 'coc-python': function('<SID>lc_coc_python'),
-            \ 'coc-rainbow-fart': function('<SID>lc_coc_rainbow_fart'),
             \ 'coc-explorer': function('<SID>lc_coc_explorer'),
             \ 'coc-ci': function('<SID>lc_coc_ci'),
             \ 'coc-vimlsp': function('<SID>lc_coc_vimlsp'),

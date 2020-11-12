@@ -1,4 +1,5 @@
-" 设置永久目录, 那么无论什么时候打开都能退回到最最最开始
+" 本地历史版本记录 回滚
+" https://github.com/simnalamburt/vim-mundo
 set undofile
 exec 'set undodir=' .  g:undo_dir
 let g:mundo_width = 60

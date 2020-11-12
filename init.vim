@@ -21,10 +21,12 @@ call plug#end()
 
 " 载入快捷键配置
 LoadScript keymap.vim
+LoadScript plugin_config.vim
+LoadScript coc_config.vim
 " 载入主题配置
 LoadScript theme/theme.vim
 LoadScript theme/statusline.vim
-LoadScript theme/tabline.vim
+"LoadScript theme/tabline.vim
 
 " 依据插件名字载入对应的插件配置
 function s:source_config(pluginName) abort

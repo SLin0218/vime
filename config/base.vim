@@ -32,16 +32,17 @@ set history=500                                             " 历史命令
 set splitbelow                                              " 在下方分割
 set expandtab                                               " tab扩展为空格
 set tabstop=2
-set softtabstop=2                                          " 连续数量的空格看作一个制表符
+set softtabstop=2                                           " 连续数量的空格看作一个制表符
 set shiftwidth=2
 set smarttab
 set shiftround
 if has('folding')
     set foldenable
-    set foldmethod=indent                                     " 基于缩进的折叠
-    set foldlevel=99                                          " 默认打开所有缩进
+    set foldmethod=indent                                   " 基于缩进的折叠
+    set foldlevel=99                                        " 默认打开所有缩进
 endif
 
+set cmdheight=2                                               " cmd 高度
 set nobackup
 set nowritebackup
 set shortmess+=c

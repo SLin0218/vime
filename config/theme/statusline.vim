@@ -1,51 +1,54 @@
-" 自定义状态栏和tab栏
-if common#functions#HasPlug('vim-crystalline')
-    \ || common#functions#HasPlug('lightline.vim')
-    \ || common#functions#HasPlug('vim-airline')
-    finish
-endif
-
-" 状态栏
-" set statusline=2
-
-" 黑名单
-let s:disable_statusline =
-	\ 'defx\|denite\|vista\|tagbar\|undotree\|diff\|peekaboo\|sidemenu\|qf\|coc-explorer\|startify'
-
-let s:stl = ""
-let s:stl .= "%#ToolbarButton# %{common#functions#ModeLabel()} "
-let s:stl .= "%#Substitute# %n %f%h%w%r "
-let s:stl .= "%#IncSearch#%{common#functions#ReadOnly()}"
-let s:stl .= "%#StatusLine# %{common#functions#GitBranch()} %{common#functions#GitCount()}"
-let s:stl .= "%{common#functions#CocStatus()} "
-
-let s:stl .= "%="
-let s:stl .= "%<"
-
-let s:stl .= "%#StatusLine# [%{&fileformat}] %{&fileencoding?&fileencoding:&encoding} "
-let s:stl .= "%#Substitute# %{common#functions#BufLineAndColInfo()} "
-let s:stl .= "%#ToolbarButton# %{common#functions#FileType()} "
-" let s:stl .= "%#IncSearch#%{common#functions#CocError()}"
-
-let s:stl_nc = ""
-let s:stl_nc .= "%#PmenuThumb# %n %f%h%w%r"
-
-function s:active() abort
-    if &ft =~? s:disable_statusline
-        return
-    endif
-    let &l:statusline = s:stl
+function! ReadOnlyIcon(current) abort
+  return &readonly && a:current ? '🔒' : ''
 endfunction
 
-function s:inactive() abort
-    let &l:statusline = s:stl_nc
+function! StatusLine(current, width)
+  " 黑名单
+ " let s:disable_statusline =
+ "   \ 'defx\|denite\|vista\|tagbar\|undotree\|diff\|peekaboo\|sidemenu\|qf\|coc-explorer\|startify'
+  " 当前文件如果是黑名单
+"  if a:filetype =~? s:disable_statusline
+    "return '%{&ft}'
+"  endif
+
+  let l:s = ''
+  if a:current
+    let l:s .= crystalline#mode()
+  else
+    let l:s .= '%#CrystallineInactive#'
+  endif
+
+  let l:s .= '%#Search# %n %#Crystalline# %F%h%w%m '
+  let l:s .= ReadOnlyIcon(a:current)
+
+  if a:current
+    let l:s .= "%{get(g:,'coc_git_status','')} "
+  endif
+
+  let l:s .= '%='
+  if a:current
+    let l:s .= ' %{&paste ?"PASTE ":""}%{&spell?"SPELL ":""}'
+  endif
+  let l:s .= a:current ? crystalline#mode_color() : ''
+  if a:width > 80
+    let l:s .= '  │ %{&ft} │ %{&fenc!=#""?&fenc:&enc} │ %l-%c │ %P '
+  else
+    let l:s .= ' '
+  endif
+
+  return l:s
 endfunction
 
-augroup vime_theme_statusline_group
-    autocmd!
+function! TabLine()
+  let l:vimlabel = has('nvim') ?  ' NVIM ' : ' VIM '
+  return crystalline#bufferline(2, len(l:vimlabel), 1) . '%=%#CrystallineTab# ' . l:vimlabel
+endfunction
 
-    autocmd VimEnter,ColorScheme,FileType,WinEnter,BufWinEnter * call s:active()
-	autocmd WinLeave * call s:inactive()
+let g:crystalline_enable_sep = 0
+let g:crystalline_statusline_fn = 'StatusLine'
+let g:crystalline_tabline_fn = 'TabLine'
+let g:crystalline_theme = 'default'
 
-    autocmd FileChangedShellPost,BufFilePost,BufNewFile,BufWritePost * redrawstatus
-augroup END
+set showtabline=2
+set guioptions-=e
+set laststatus=2

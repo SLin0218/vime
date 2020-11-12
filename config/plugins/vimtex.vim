@@ -1,3 +1,4 @@
+" 数学符号支持
 let g:vimtex_cache_root = g:cache_root_path . '/vim/vimtex'
 " https://zhuanlan.zhihu.com/p/61036165
 let g:tex_flavor='latex'

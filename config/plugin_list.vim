@@ -12,7 +12,7 @@ Plug 'tpope/vim-fugitive', {'on': ['Gwrite', 'Gcommit', 'Gread', 'Gdiff', 'Gblam
 " 注释插件
 Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
-" Plug 'kkoomen/vim-doge', {'on': 'DogeGenerate'}
+Plug 'kkoomen/vim-doge', {'on': 'DogeGenerate'}
 " 数据库
 Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion'
 " 全局替换插件
@@ -21,40 +21,14 @@ Plug 'brooth/far.vim'
 Plug 'preservim/tagbar'
 " 主题theme类插件
 Plug 'dracula/vim'
-Plug 'kaicataldo/material.vim'
-Plug 'ajmwagar/vim-deus'
-Plug 'rakr/vim-one'
-Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
-Plug 'sainnhe/forest-night'
-Plug 'srcery-colors/srcery-vim'
-Plug 'hardcoreplayers/oceanic-material'
-Plug 'chuling/ci_dark'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'mhartington/oceanic-next'
-Plug '986299679/space-vim-theme'
-Plug 'ayu-theme/ayu-vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'flrnd/candid.vim'
-Plug 'jaredgorski/spacecamp'
-Plug 'bluz71/vim-moonfly-colors'
-Plug 'cormacrelf/vim-colors-github'
-Plug 'arzg/vim-colors-xcode'
-Plug 'sainnhe/sonokai'
-Plug 'sonph/onehalf'
-Plug 'ghifarit53/tokyonight-vim'
-Plug 'sainnhe/edge'
-" 顶栏和底栏
-" Plug 'rbong/vim-crystalline'
-" Plug 'itchyny/lightline.vim'
+Plug 'rbong/vim-crystalline'
+
 " 彩虹括号
 Plug 'luochen1990/rainbow'
 " 函数列表
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 自动补全括号
-Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
 " 快速包围
 Plug 'tpope/vim-surround'
 " Plug 'machakann/vim-sandwich'
@@ -93,8 +67,6 @@ Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " , { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
 Plug 'mzlogin/vim-markdown-toc', {'on': ['GenTocGFM', 'GenTocRedcarpet', 'GenTocGitLab', 'GenTocMarked']}
-" 功能很强的折叠插件, zc zo
-Plug 'pseewald/vim-anyfold'
 " 起始界面
 Plug 'mhinz/vim-startify'
 " 翻译插件
@@ -137,7 +109,7 @@ else
     Plug 'octol/vim-cpp-enhanced-highlight'
 endif
 " 总是匹配tag
-Plug 'valloric/MatchTagAlways', {'for': ['html', 'css', 'xml']}
+Plug 'valloric/MatchTagAlways', {'for': ['html', 'css', 'xml', 'vue']}
 " 显示颜色 例如: #654456
 if has('nvim')
     Plug 'norcalli/nvim-colorizer.lua'
@@ -155,18 +127,23 @@ Plug 'markonm/traces.vim'
 " 语法检查
 Plug 'rhysd/vim-grammarous', {'for': ['markdown', 'vimwiki', 'md', 'tex']}
 " 首先需要在config/plugin_list.vim中增加插件
-Plug 'matze/vim-move', {'on': [
-            \ '<Plug>MoveBlockDown',
-            \ '<Plug>MoveBlockUp',
-            \ '<Plug>MoveBlockRight',
-            \ '<Plug>MoveBlockLeft']}
+Plug 'matze/vim-move', {'on': [ '<Plug>MoveBlockDown', '<Plug>MoveBlockUp', '<Plug>MoveBlockRight', '<Plug>MoveBlockLeft']}
 Plug 'simnalamburt/vim-mundo'
+" 暗处理 未激活窗口
+Plug 'TaDaa/vimade'
+" 中英文切换
+Plug 'ybian/smartim'
+Plug 'dense-analysis/ale'
+Plug 'camspiers/animate.vim'
+Plug 'rhysd/accelerated-jk'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
     \ 'coc-tsserver',
+    \ 'coc-vetur',
+    \ 'coc-eslint',
     \ 'coc-prettier',
-    \ 'coc-calc',
     \ 'coc-vimlsp',
     \ 'coc-marketplace',
     \ 'coc-xml',
@@ -175,17 +152,11 @@ let g:coc_global_extensions = [
     \ 'coc-yaml',
     \ 'coc-cmake',
     \ 'coc-snippets',
-    \ 'coc-clangd',
     \ 'coc-json',
     \ 'coc-lists',
     \ 'coc-word',
-    \ 'coc-python',
     \ 'coc-tabnine',
     \ 'coc-explorer',
     \ 'coc-ci',
     \ 'coc-git',
     \ ]
-
-    "\ 'coc-bookmark',
-    "\ 'coc-rainbow-fart',
-    "\ 'coc-lists',

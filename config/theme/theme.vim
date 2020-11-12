@@ -6,14 +6,6 @@ if &term =~ '256color' && $TMUX != '' " disable Background Color Erase (BCE) so 
 endif
 
 if has('termguicolors')
-    " fix bug for vim
-    if !has('nvim')
-        " if &term =~# '^screen\|^tmux'
-        let &t_8f = "\e[38;2;%lu;%lu;%lum"
-        let &t_8b = "\e[48;2;%lu;%lu;%lum"
-        " endif
-    endif
-    " enable true color
     set termguicolors
 endif
 " set termguicolors
@@ -43,51 +35,9 @@ hi Search ctermfg=17 ctermbg=190 guifg=#000000 guibg=#ffff00
 
 " 设置弹出框大小, 0 则有多少显示多少
 set pumheight=20
-if has('nvim')
-    set pumblend=20 " 提示框透明
-endif
+set pumblend=20 " 提示框透明
 
 " 主题选择
-" let g:srcery_italic = 1
-" let g:srcery_transparent_background = 1
-" silent! colorscheme srcery
-
-" let g:forest_night_enable_italic = 1
-" let g:forest_night_transparent_background = 1
-" silent! colorscheme forest-night
-
-" silent! colorscheme one
-
-" silent! colorscheme ci_dark
-
-" silent! colorscheme sonokai
-
-" let g:signify_sign_add    = '┃'
-" let g:signify_sign_change = '┃'
-" let g:signify_sign_delete = '•'
-" let g:signify_sign_show_count = 0
-" silent! colorscheme xcodedark
-" augroup vim_colors_xcode_group
-    " autocmd!
-    " autocmd vim_colors_xcode_group ColorScheme * hi Comment        cterm=italic gui=italic
-    " autocmd vim_colors_xcode_group ColorScheme * hi SpecialComment cterm=italic gui=italic
-    " autocmd User SignifySetup
-                " \ execute 'autocmd! signify' |
-                " \ autocmd signify TextChanged,TextChangedI * call sy#start()
-" augroup END
-
-" let g:tokyonight_style = 'storm' " available: night, storm
-" let g:tokyonight_enable_italic = 1
-" let g:tokyonight_transparent_background = 0
-" let g:tokyonight_menu_selection_background = 'red'
-" let g:tokyonight_current_word = 'underline'
-" silent! colorscheme tokyonight
-
-" silent! colorscheme edge
-" let g:material_terminal_italics = 1
-" let g:material_theme_style = 'palenight'
-" silent! colorscheme material
-
 silent! colorscheme dracula
 " coc 美化
 if common#functions#HasPlug('coc.nvim')
