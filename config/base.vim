@@ -3,14 +3,14 @@ if &compatible
     set nocompatible                                            " 不要兼容vi
 endif
 
-if has('syntax')
-    syntax enable
-    syntax on
-endif
+"if has('syntax')
+"    syntax enable
+"    syntax on
+"endif
 
-if has('autocmd')
-    filetype plugin indent on
-endif
+"if has('autocmd')
+"    filetype plugin indent on
+"endif
 
 if has('multi_byte')
     set encoding=utf-8                                          " 编码

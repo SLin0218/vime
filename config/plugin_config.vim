@@ -38,20 +38,20 @@ let g:closetag_filetypes = 'html,xhtml,phtml,vue'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_regions = {
-	\ 'typescript.tsx': 'jsxRegion,tsxRegion',
-	\ 'javascript.jsx': 'jsxRegion',
-	\ }
+  \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+  \ 'javascript.jsx': 'jsxRegion',
+  \ }
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
-"""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""
 "  https://github.com/rbgrouleff/bclose.vim "
 "        只关闭 buffer 不关闭窗口           "
 """""""""""""""""""""""""""""""""""""""""""""
 nnoremap <M-q> <esc>:Bclose<cr>
 
 
-"""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""
 "     https://github.com/TaDaa/vimade       "
 "              对未激活窗口变暗             "
 """""""""""""""""""""""""""""""""""""""""""""
@@ -72,10 +72,10 @@ let g:mta_filetypes = {
     \ 'jinja' : 1,
     \}
 
-"""""""""""""""""""""""""""""""""""""""""""""
-"   https://github.com/t9md/vim-choosewin   "
-"                 窗口选择                  "
-"""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""
+"  https://github.com/t9md/vim-choosewin   "
+"                窗口选择                  "
+""""""""""""""""""""""""""""""""""""""""""""
 " 使用覆盖模式
 let g:choosewin_overlay_enable = 0
 function s:chooseWin() abort
@@ -91,18 +91,17 @@ nnoremap <silent> - :call <SID>chooseWin()<cr>
 """""""""""""""""""""""""""""""""""""""""""""
 let g:smartim_default='com.apple.keylayout.ABC'
 
-
-"""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""
 "   https://github.com/t9md/brooth/far.vim  "
 "                全局替换                   "
 """""""""""""""""""""""""""""""""""""""""""""
 set lazyredraw
-set regexpengine=1
+set ignorecase smartcase
 
-"""""""""""""""""""""""""""""""""""""""""""""
-"   https://github.com/iamcco/dict.vim  "
-"                  翻译                     "
-"""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""
+""   https://github.com/iamcco/dict.vim  "
+""                  翻译                     "
+""""""""""""""""""""""""""""""""""""""""""""""
 nmap <silent> <leader>ye <Plug>DictSearch
 vmap <silent> <leader>ye <Plug>DictVSearch
 nmap <silent> <leader>yw <Plug>DictWSearch

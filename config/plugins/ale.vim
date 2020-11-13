@@ -26,7 +26,7 @@ let g:ale_linters_explicit = 1
 " 高亮显示错误地方
 let g:ale_set_highlights = 1
 "自定义error和warning图标
-let g:ale_sign_error = '>>'
+let g:ale_sign_error = '>>h'
 let g:ale_sign_warning = '!!'
 "状态栏设置,状态栏中整合ale
 let g:ale_statusline_format = ['❌ %d', '⚡ %d', '👌 OK']

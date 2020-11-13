@@ -44,7 +44,6 @@
     "session.directory": "~/.cache/vim/sessions/",
     "session.saveOnVimLeave": true,
 
-    "diagnostic.displayByAle": false,
     "diagnostic.maxWindowHeight": 10,
 
     "list.maxPreviewHeight": 8,
@@ -64,7 +63,7 @@
 
     "explorer.icon.enableNerdfont": true,
     "explorer.bookmark.child.template": "[selection | 1] [filename] [position] - [annotation]",
-
+    "explorer.previewAction.onHover": false,
     "explorer.keyMappings.global": {
         "k": "nodePrev",
         "j": "nodeNext",
@@ -128,6 +127,10 @@
     "snippets.ultisnips.enable": true,
     "snippets.ultisnips.directories": ["UltiSnips", "gosnippets/UltiSnips"],
     "snippets.extends": { "cpp": ["c", "cpp"], "typescript": ["javascript"] },
+
+    "tsserver.log": "verbose",
+    "tsserver.trace.server": "verbose",
+    "tsserver.enable": true,
 
     "languageserver": {}
 }

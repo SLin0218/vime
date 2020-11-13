@@ -2,6 +2,7 @@ function! ReadOnlyIcon(current) abort
   return &readonly && a:current ? '🔒' : ''
 endfunction
 
+
 function! StatusLine(current, width)
   " 黑名单
  " let s:disable_statusline =
@@ -10,7 +11,6 @@ function! StatusLine(current, width)
 "  if a:filetype =~? s:disable_statusline
     "return '%{&ft}'
 "  endif
-
   let l:s = ''
   if a:current
     let l:s .= crystalline#mode()
@@ -44,6 +44,13 @@ function! TabLine()
   return crystalline#bufferline(2, len(l:vimlabel), 1) . '%=%#CrystallineTab# ' . l:vimlabel
 endfunction
 
+let g:crystalline_ignore_filetype_list = [
+    \ 'tagbar',
+    \ 'undotree',
+    \ 'diff',
+    \ 'coc-explorer',
+    \ 'startify'
+    \ ]
 let g:crystalline_enable_sep = 0
 let g:crystalline_statusline_fn = 'StatusLine'
 let g:crystalline_tabline_fn = 'TabLine'

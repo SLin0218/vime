@@ -5,65 +5,62 @@ if &term =~ '256color' && $TMUX != '' " disable Background Color Erase (BCE) so 
     set t_ut=
 endif
 
-if has('termguicolors')
-    set termguicolors
-endif
-" set termguicolors
+set termguicolors
 
 " 美化相关基本配置
 " 高亮当前行列
 set cursorline
 set cursorcolumn
-" 高亮textwidth后的一列
-set colorcolumn=+1
-" 光标
-set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20
-" 搜索高亮
-set incsearch
-" 高亮匹配内容
-set hlsearch
-" set list
-" 只有set list下面的才会起作用
-if &list
-    set listchars=tab:\|\→·,nbsp:⣿,extends:»,precedes:«
-    set listchars+=eol:¬
-    set listchars+=trail:·
-    " set listchars+=space:␣
-endif
-" 搜索高亮颜色
-hi Search ctermfg=17 ctermbg=190 guifg=#000000 guibg=#ffff00
+"" 高亮textwidth后的一列
+"set colorcolumn=+1
+"" 光标
+"set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20
+"" 搜索高亮
+"set incsearch
+"" 高亮匹配内容
+"set hlsearch
+"" set list
+"" 只有set list下面的才会起作用
+"if &list
+    "set listchars=tab:\|\→·,nbsp:⣿,extends:»,precedes:«
+    "set listchars+=eol:¬
+    "set listchars+=trail:·
+    "" set listchars+=space:␣
+"endif
+"" 搜索高亮颜色
+"hi Search ctermfg=17 ctermbg=190 guifg=#000000 guibg=#ffff00
 
-" 设置弹出框大小, 0 则有多少显示多少
-set pumheight=20
-set pumblend=20 " 提示框透明
+"" 设置弹出框大小, 0 则有多少显示多少
+"set pumheight=20
+"set pumblend=20 " 提示框透明
 
 " 主题选择
 silent! colorscheme dracula
 " coc 美化
-if common#functions#HasPlug('coc.nvim')
-    if !common#functions#HasPlug('vim-multiple-cursors.vim')
-        " coc多光标颜色
-        hi CocCursorRange cterm=bold ctermfg=238 ctermbg=226 gui=bold guifg=#444444 guibg=#ffff00
-    endif
+"if common#functions#HasPlug('coc.nvim')
+    "if !common#functions#HasPlug('vim-multiple-cursors.vim')
+        "" coc多光标颜色
+        "hi CocCursorRange cterm=bold ctermfg=238 ctermbg=226 gui=bold guifg=#444444 guibg=#ffff00
+    "endif
 
-    hi link CocErrorSign red
-    hi link CocWarningSign yellow
-    hi link CocInfoSign green
-    hi link CocHintSign blue
+    "hi link CocErrorSign red
+    "hi link CocWarningSign yellow
+    "hi link CocInfoSign green
+    "hi link CocHintSign blue
 
-    if common#functions#HasCocPlug('coc-highlight')
-        " coc 高亮单词
-        au VimEnter * hi CocHighlightText guifg=#ffb6c1
-    endif
+    "if common#functions#HasCocPlug('coc-highlight')
+        "" coc 高亮单词
+        "au VimEnter * hi CocHighlightText guifg=#ffb6c1
+    "endif
 
-    if common#functions#HasCocPlug('coc-yank')
-        " coc yank背景颜色
-        hi HighlightedyankRegion cterm=bold ctermfg=238 ctermbg=226 gui=bold guifg=#444444 guibg=#ffa07a
-    endif
+    "if common#functions#HasCocPlug('coc-yank')
+        "" coc yank背景颜色
+        "hi HighlightedyankRegion cterm=bold ctermfg=238 ctermbg=226 gui=bold guifg=#444444 guibg=#ffa07a
+    "endif
 
-    if common#functions#HasCocPlug('coc-explorer') && has('nvim')
-        " coc-explorer
-        " None 而不是NONE
-        hi CocExplorerNormalFloat guibg=None
-    endif
-endif
+    "if common#functions#HasCocPlug('coc-explorer') && has('nvim')
+        "" coc-explorer
+        "" None 而不是NONE
+        "hi CocExplorerNormalFloat guibg=None
+    "endif
+"endif
