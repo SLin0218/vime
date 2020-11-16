@@ -10,6 +10,10 @@ function! common#functions#PlugHasLoaded(plugName) abort
        \ stridx(&rtp, g:plugs[a:plugName].dir) >= 0)
 endfunction
 
+function! common#functions#CloseBuffer() abort
+  echo exec 'normal! :ls'
+endfunction
+
 " TODO 应该先判断g:plugs_order是否存在
 function! common#functions#HasPlug(plugName) abort
     " 插件列表中是否存在该插件

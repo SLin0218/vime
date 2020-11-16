@@ -23,8 +23,8 @@ nnoremap <c-w>h :abo vsplit <cr>
 nnoremap <c-w>j :rightbelow split <cr>
 nnoremap <c-w>l :rightbelow vsplit <cr>
 " 关闭窗口
-nnoremap <silent> q <esc>:close<cr>
-vnoremap <silent> q <esc>:close<cr>
+nnoremap <silent> <leader>q <esc>:close<cr>
+vnoremap <silent> <leader>q <esc>:close<cr>
 
 " 使用回车打开关闭折叠
 nnoremap <CR> za
@@ -41,8 +41,6 @@ cnoremap <C-j> <Left>
 
 " 使用leader q执行宏录制功能
 nnoremap <leader>q q
-" jk表示esc
-" inoremap jk <esc>
 
 nmap << <<_
 nmap >> >>_

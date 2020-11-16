@@ -64,7 +64,7 @@ Plug 'iamcco/dict.vim', {'on':
     \ '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch'
     \ ]}
 " tmux相关插件
-if  executable("tmux") && strlen($TMUX)
+if  executable("tmux")
     " tmux与vim窗口间导航
     Plug 'christoomey/vim-tmux-navigator'
     " tmux.conf set -g focus-events on
@@ -90,7 +90,7 @@ Plug 'romgrk/nvim-treesitter-context'
 " 总是匹配tag
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'css', 'xml', 'vue']}
 " 显示颜色 例如: #654456
-"Plug 'norcalli/nvim-colorizer.lua'
+Plug 'norcalli/nvim-colorizer.lua'
 " 加强版的 go to file
 Plug 'tpope/vim-apathy'
 " 查看启动时间
@@ -103,10 +103,10 @@ Plug 'markonm/traces.vim'
 Plug 'matze/vim-move', {'on': [ '<Plug>MoveBlockDown', '<Plug>MoveBlockUp', '<Plug>MoveBlockRight', '<Plug>MoveBlockLeft']}
 Plug 'simnalamburt/vim-mundo'
 " 暗处理 未激活窗口
-Plug 'TaDaa/vimade'
+" Plug 'TaDaa/vimade'
 " 中英文切换
 Plug 'ybian/smartim'
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 "Plug 'camspiers/animate.vim'
 Plug 'rhysd/accelerated-jk'
 
@@ -132,5 +132,3 @@ let g:coc_global_extensions = [
     \ 'coc-ci',
     \ 'coc-git',
     \ ]
-
-    "\ 'coc-diagnostic',

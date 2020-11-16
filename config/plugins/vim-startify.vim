@@ -42,9 +42,12 @@ let g:startify_lists = [
        \ { 'type': 'sessions',  'header': ['        Sessions']       },
        \ { 'type': 'bookmarks', 'header': ['        Bookmarks']      },
        \ { 'type': 'files',     'header': ['        MRU']            },
-       \ { 'type': 'dir',       'header': ['        MRU '. getcwd()] },
        \ { 'type': 'commands',  'header': ['        Commands']       },
        \ ]
+
+       "\ { 'type': 'dir',       'header': ['        MRU '. getcwd()] },
+
+autocmd User Startified nmap <buffer>q <Nop>
 
 " 打开buffer也显示startify
 " autocmd BufEnter *

@@ -1,23 +1,10 @@
 " 基本配置
-if &compatible
-    set nocompatible                                            " 不要兼容vi
-endif
-
-"if has('syntax')
-"    syntax enable
-"    syntax on
-"endif
-
-"if has('autocmd')
-"    filetype plugin indent on
-"endif
-
+set nocompatible                                            " 不要兼容vi
 if has('multi_byte')
-    set encoding=utf-8                                          " 编码
-    set fileencoding=utf-8
-    set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1        " 编码猜测
+  set encoding=utf-8                                      " 编码
+  set fileencoding=utf-8
+  set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1    " 编码猜测
 endif
-
 set number
 set relativenumber                                          " 设置相对行号
 set smartindent                                             " 智能缩进
@@ -26,7 +13,6 @@ set linebreak                                               " 软折行
 set noswapfile                                              " 禁止生成swap文件
 set hidden                                                  " 终端隐藏后不结束
 set ignorecase                                              " 忽略大小写
-" set smartcase
 set infercase                                               " Adjust case in insert completion mode
 set history=500                                             " 历史命令
 set splitbelow                                              " 在下方分割
@@ -35,38 +21,25 @@ set tabstop=2
 set softtabstop=2                                           " 连续数量的空格看作一个制表符
 set shiftwidth=2
 set smarttab
-set shiftround
-if has('folding')
-    set foldenable
-    set foldmethod=indent                                   " 基于缩进的折叠
-    set foldlevel=99                                        " 默认打开所有缩进
-endif
-
-set cmdheight=2                                               " cmd 高度
-set nobackup
-set nowritebackup
-set shortmess+=c
+set shiftround                                              " 缩进取整数
+set cmdheight=2                                             " cmd 高度
+set nobackup                                                " 关闭备份 默认是关闭的
+set nowritebackup                                           " 关闭写入备份
+set shortmess+=c                                            " 消息缩写
 set sessionoptions+=globals
 set autoread                                                " 文件在外部被修改过，重新读入
 set autowrite                                               " 自动写回
 set confirm                                                 " 显示确认对话框
-set noshowmode
-set ttimeout
+set noshowmode                                              " 不显示模式切换消息
+set ttimeout                                                " 打开映射键超时，不会一直等待
 set timeoutlen=500
 set ttimeoutlen=10
-set updatetime=100                                  " 更新时间100ms 默认4000ms 写入swap的时间
-set mouse=n                                         " 允许使用鼠标, normal生效，a则是全模式生效
-
-set winaltkeys=no
-set lazyredraw                                      " 延迟绘制，提升性能
-
-set showmatch
-set matchtime=2
-set ffs=unix,dos,mac                                " 文件换行符，默认使用unix换行符
-
-if has('nvim') == 0 && has('patch-8.1.2020')
-    set cursorlineopt=number cursorline
-endif
+set updatetime=100                                          " 更新时间100ms 默认4000ms 写入swap的时间
+set mouse=n                                                 " 允许使用鼠标, normal生效，a则是全模式生效
+set lazyredraw                                              " 如果置位本选项，执行宏、寄存器和其它不通过输入的命令时屏幕不会重画
+" set showmatch                                               " 插入括号时，短暂地跳转到匹配的对应括号
+" set matchtime=2                                             " 显示匹配括号 (十分之一秒 * 2) 5 为默认值
+set ffs=unix,dos,mac                                        " 文件换行符，默认使用unix换行符
 
 if has('patch-8.1.1564')
     set signcolumn=yes
@@ -83,7 +56,6 @@ endif
 " 一下内容来自韦大的配置
 " 文件搜索和补全时忽略下面的扩展名
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
-
 set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib "stuff to ignore when tab completing
 set wildignore+=*.so,*.dll,*.swp,*.egg,*.jar,*.class,*.pyc,*.pyo,*.bin,*.dex
 set wildignore+=*.zip,*.7z,*.rar,*.gz,*.tar,*.gzip,*.bz2,*.tgz,*.xz    " MacOSX/Linux

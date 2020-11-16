@@ -23,24 +23,25 @@ call plug#end()
 LoadScript keymap.vim
 LoadScript plugin_config.vim
 LoadScript coc_config.vim
+LoadScript git_config.vim
 " 载入主题配置
 LoadScript theme/theme.vim
 LoadScript theme/statusline.vim
 
-LoadScript plugins/vim-startify.vim
+"LoadScript plugins/vim-startify.vim
 
 " 依据插件名字载入对应的插件配置
-"function s:source_config(pluginName) abort
-"    let l:config_path = g:plugins_config_root_path . a:pluginName . ".vim"
-"    if filereadable(l:config_path)
-"        exec 'source' fnameescape(l:config_path)
-"    endif
-"endfunction
+function s:source_config(pluginName) abort
+    let l:config_path = g:plugins_config_root_path . a:pluginName . ".vim"
+    if filereadable(l:config_path)
+        exec 'source' fnameescape(l:config_path)
+    endif
+endfunction
 
 " TODO 从plug.vim中寻找何时载入插件
 " 载入插件配置
-"for [plugName, _] in items(g:plugs)
-    "if common#functions#HasInstall(plugName)
-        "call s:source_config(plugName)
-    "endif
-"endfor
+for [plugName, _] in items(g:plugs)
+    if common#functions#HasInstall(plugName)
+        call s:source_config(plugName)
+    endif
+endfor

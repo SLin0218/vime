@@ -29,13 +29,10 @@ let g:coc_explorer_global_presets = {
         \      'floating-position': 'center',
         \      'floating-width': 100,
         \      'open-action-strategy': 'sourceWindow',
-        \      'file-child-template': '[git | 2] [selection | clip | 1]
-        \             [indent] [icon | 1] [diagnosticError & 1]
-        \             [filename omitCenter 1][modified][readonly]
-        \             [linkIcon & 1][link growRight 1] [timeCreated | 8] [size]'
+        \      'file-child-template': '[git | 2] [selection | clip | 1] [indent] [icon | 1] [diagnosticError & 1] [filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1] [timeCreated | 8]    [size]  '
         \   },
         \   'left': {
-        \     'file-child-template': '[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1]',
+        \     'file-child-template': '[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1]',
         \     'file-child-labeling-template': '[fullpath][link][diagnosticWarning][diagnosticError][size][timeAccessed][timeModified][timeCreated][readonly][modified]'
         \   }
     \ }
@@ -53,10 +50,10 @@ let g:coc_snippet_next = '<m-j>'
 let g:coc_snippet_prev = '<m-k>'
 
 " 导航到修改块
-nnoremap <silent> <leader>gk <Plug>(coc-git-prevchunk)
-nnoremap <silent> <leader>gj <Plug>(coc-git-nextchunk)
+nmap <silent> <leader>gk <Plug>(coc-git-prevchunk)
+nmap <silent> <leader>gj <Plug>(coc-git-nextchunk)
 " 显示光标处的修改信息
-nnoremap <silent> <leader>gp <esc>:CocCommand git.chunkInfo<cr>
+nnoremap <silent> gp <esc>:CocCommand git.chunkInfo<cr>
 " 撤销当前块的修改
 nnoremap <silent> <leader>gu <esc>:CocCommand git.chunkUndo<cr>
 nnoremap <silent> <leader>gh <esc>:CocCommand git.chunkStage<cr>
@@ -66,13 +63,13 @@ nmap <silent> <leader>en <Plug>(coc-diagnostic-next)
 " 上一个问题
 nmap <silent> <leader>ep <Plug>(coc-diagnostic-prev)
 " 跳转到定义
-nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
 " 跳转到类型定义
-nmap <silent> <leader>gy <plug>(coc-type-definition)
+nmap <silent> gy <plug>(coc-type-definition)
 " 跳转到实现
-nmap <silent> <leader>gn <plug>(coc-implementation)
+nmap <silent> gn <plug>(coc-implementation)
 " 跳转到引用
-nmap <silent> <leader>gu <plug>(coc-references)
+nmap <silent> gu <plug>(coc-references)
 " 重构refactor,需要lsp支持
 nmap <silent> <leader>rf <Plug>(coc-refactor)
 " 修复代码
@@ -80,9 +77,9 @@ nmap <silent> <M-f> <Plug>(coc-fix-current)
 " 变量重命名
 nmap <silent> <leader>rn <Plug>(coc-rename)
 " 函数文档
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> K :call <SID>show_documentation()<CR>
 " 函数参数的文档
-nnoremap <silent> <leader>k :call CocActionAsync('showSignatureHelp')<CR>
+nmap <silent> <leader>k :call CocActionAsync('showSignatureHelp')<CR>
 
 " 多光标支持，但是coc的多光标不如 vim-visual-multi，因此在没有
 " vim-visual-multi的时候才使用 coc

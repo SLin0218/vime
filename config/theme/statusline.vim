@@ -2,7 +2,6 @@ function! ReadOnlyIcon(current) abort
   return &readonly && a:current ? '🔒' : ''
 endfunction
 
-
 function! StatusLine(current, width)
   " 黑名单
  " let s:disable_statusline =
@@ -39,9 +38,14 @@ function! StatusLine(current, width)
   return l:s
 endfunction
 
-function! TabLine()
+function! TableLabel(buf, max_width) abort
+  let buf_name = bufname(a:buf)
+  return ' ' . strpart(buf_name, strridx(buf_name, '/') + 1) . ' '
+endfunction
+
+function! TabLine() abort
   let l:vimlabel = has('nvim') ?  ' NVIM ' : ' VIM '
-  return crystalline#bufferline(2, len(l:vimlabel), 1) . '%=%#CrystallineTab# ' . l:vimlabel
+  return crystalline#bufferline(2, len(l:vimlabel), 1, 1, 'TableLabel') . '%=%#CrystallineTab# ' . l:vimlabel
 endfunction
 
 let g:crystalline_ignore_filetype_list = [

@@ -48,16 +48,15 @@ let g:closetag_close_shortcut = '<leader>>'
 "  https://github.com/rbgrouleff/bclose.vim "
 "        只关闭 buffer 不关闭窗口           "
 """""""""""""""""""""""""""""""""""""""""""""
-nnoremap <M-q> <esc>:Bclose<cr>
-
+nnoremap q <esc>:Bclose<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""
 "     https://github.com/TaDaa/vimade       "
 "              对未激活窗口变暗             "
 """""""""""""""""""""""""""""""""""""""""""""
-let g:vimade = {}
-let g:vimade.fadelevel = 0.7
-let g:vimade.enablesigns = 1
+"let g:vimade = {}
+"let g:vimade.fadelevel = 0.7
+"let g:vimade.enablesigns = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " https://github.com/valloric/MatchTagAlways "
@@ -108,5 +107,3 @@ nmap <silent> <leader>yw <Plug>DictWSearch
 vmap <silent> <leader>yw <Plug>DictWVSearch
 nmap <silent> <Leader>yr <Plug>DictRSearch
 vmap <silent> <Leader>yr <Plug>DictRVSearch
-
-

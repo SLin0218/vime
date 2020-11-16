@@ -128,9 +128,5 @@
     "snippets.ultisnips.directories": ["UltiSnips", "gosnippets/UltiSnips"],
     "snippets.extends": { "cpp": ["c", "cpp"], "typescript": ["javascript"] },
 
-    "tsserver.log": "verbose",
-    "tsserver.trace.server": "verbose",
-    "tsserver.enable": true,
-
     "languageserver": {}
 }
