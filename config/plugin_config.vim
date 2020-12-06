@@ -12,23 +12,6 @@ nmap k <Plug>(accelerated_jk_gk)
 " nmap j <Plug>(accelerated_jk_gj_position)
 " nmap k <Plug>(accelerated_jk_gk_position)
 
-
-"""""""""""""""""""""""""""""""""""""""""""
-" https://github.com/rhysd/accelerated-jk "
-"                窗口动画                 "
-"""""""""""""""""""""""""""""""""""""""""""
-let g:fzf_layout = {
- \ 'window': 'new | wincmd J | resize 1 | call animate#window_percent_height(0.5)'
-\ }
-function! OpenAnimatedHtop() abort
-  " Open a htop in terminal
-  new term://htop
-  " Send window to bottom and start with small height
-  wincmd J | resize 1
-  " Animate height to 66%
-  call animate#window_percent_height(0.66)
-endfunction
-
 """""""""""""""""""""""""""""""""""""""""""
 "  https://github.com/alvan/vim-closetag  "
 "              自动关闭括号               "
@@ -49,14 +32,6 @@ let g:closetag_close_shortcut = '<leader>>'
 "        只关闭 buffer 不关闭窗口           "
 """""""""""""""""""""""""""""""""""""""""""""
 nnoremap q <esc>:Bclose<cr>
-
-""""""""""""""""""""""""""""""""""""""""""""""
-"     https://github.com/TaDaa/vimade       "
-"              对未激活窗口变暗             "
-"""""""""""""""""""""""""""""""""""""""""""""
-"let g:vimade = {}
-"let g:vimade.fadelevel = 0.7
-"let g:vimade.enablesigns = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " https://github.com/valloric/MatchTagAlways "
@@ -86,9 +61,9 @@ nnoremap <silent> - :call <SID>chooseWin()<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""
 "   https://github.com/t9md/vim-choosewin   "
-"               输入发切换                  "
+"               输入法切换                  "
 """""""""""""""""""""""""""""""""""""""""""""
-let g:smartim_default='com.apple.keylayout.ABC'
+let g:smartim_default='com.apple.keylayout.UnicodeHexInput'
 
 """"""""""""""""""""""""""""""""""""""""""""""
 "   https://github.com/t9md/brooth/far.vim  "
@@ -98,8 +73,8 @@ set lazyredraw
 set ignorecase smartcase
 
 """"""""""""""""""""""""""""""""""""""""""""""
-""   https://github.com/iamcco/dict.vim  "
-""                  翻译                     "
+"    https://github.com/iamcco/dict.vim      "
+"                  翻译                      "
 """"""""""""""""""""""""""""""""""""""""""""""
 nmap <silent> <leader>ye <Plug>DictSearch
 vmap <silent> <leader>ye <Plug>DictVSearch
@@ -107,3 +82,26 @@ nmap <silent> <leader>yw <Plug>DictWSearch
 vmap <silent> <leader>yw <Plug>DictWVSearch
 nmap <silent> <Leader>yr <Plug>DictRSearch
 vmap <silent> <Leader>yr <Plug>DictRVSearch
+
+
+""""""""""""""""""""""""""""""""""""""""""""""
+"    https://github.com/iamcco/dict.vim      "
+"                彩虹括号                    "
+""""""""""""""""""""""""""""""""""""""""""""""
+let g:rainbow_active = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""
+"    https://github.com/iamcco/dict.vim      "
+"                多光标                      "
+""""""""""""""""""""""""""""""""""""""""""""""
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-n>'
+let g:multi_cursor_select_all_word_key = '<A-n>'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'

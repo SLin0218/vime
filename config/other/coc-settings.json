@@ -36,7 +36,7 @@
     "prettier.tabWidth": 4,
     "prettier.eslintIntegration": true,
 
-    "xml.java.home": "/usr/lib/jvm/default/",
+    "xml.java.home": "/Users/lin/Library/Java/JavaVirtualMachines/openjdk-15/Contents/Home",
 
     "yank.highlight.duration": 200,
     "yank.enableCompletion": false,

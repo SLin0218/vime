@@ -81,28 +81,6 @@ nmap <silent> K :call <SID>show_documentation()<CR>
 " 函数参数的文档
 nmap <silent> <leader>k :call CocActionAsync('showSignatureHelp')<CR>
 
-" 多光标支持，但是coc的多光标不如 vim-visual-multi，因此在没有
-" vim-visual-multi的时候才使用 coc
-if !common#functions#HasPlug("vim-visual-multi")
-    " ctrl n下一个，ctrl p上一个
-    " ctrl c 添加一个光标再按一次取消，
-    nmap <silent> <C-c> <Plug>(coc-cursors-position)
-    nmap <expr> <silent> <C-n> <SID>select_current_word()
-    function! s:select_current_word()
-        if !get(g:, 'coc_cursors_activated', 0)
-            return "\<Plug>(coc-cursors-word)"
-        endif
-        return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
-    endfunc
-
-    xmap <silent> <C-n> y/\V<C-r>=escape(@",'/\')<CR><CR>gN<Plug>(coc-cursors-range)gn
-    nmap <silent> <C-a> :CocCommand document.renameCurrentWord<cr>
-
-    " use normal command like `<leader>xi(`
-    nmap <leader>x  <Plug>(coc-cursors-operator)
-endif
-
-
 nnoremap <silent> <M-y>  :<C-u>CocList yank<cr>
 nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 

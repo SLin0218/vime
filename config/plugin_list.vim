@@ -25,7 +25,7 @@ Plug 'rbong/vim-crystalline'
 " 彩虹括号
 Plug 'luochen1990/rainbow'
 " 函数列表
-Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
+"Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 自动补全括号
 Plug 'alvan/vim-closetag'
 " 快速包围
@@ -37,7 +37,6 @@ Plug 'tpope/vim-repeat'
 Plug 'ntpeters/vim-better-whitespace'
 " 代码段
 Plug 'honza/vim-snippets'
-" Plug 'SirVer/ultisnips'
 " 快速选择窗口
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 " 快速移动
@@ -83,7 +82,7 @@ Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'psliwka/vim-smoothie'
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', { 'commit': '3c07232'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'romgrk/nvim-treesitter-context'
